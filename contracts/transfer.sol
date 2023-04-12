@@ -4,10 +4,13 @@ pragma solidity >0.8.8;
 contract Transfer{
     address to;
     uint256 v;
-        mapping(address => uint256) private addrToBalance;
+    
+    mapping(address => uint256) private addrToBalance;
+
     constructor() payable{
         v =msg.value;
     }
+    
     function addEth() public payable{
         addrToBalance[msg.sender] += msg.value;
         v = msg.value;
